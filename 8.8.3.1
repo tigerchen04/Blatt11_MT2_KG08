@@ -1,0 +1,50 @@
+#include <iostream>
+#include <thread>
+
+using namespace std;
+
+int Zahl;
+
+void task_1(int Zahl) {
+	if (Zahl < 100)
+		do
+		{
+			cout << Zahl << endl;
+			++Zahl;
+		} while (Zahl < 100);
+	else
+		return ;
+
+};
+
+void task_2(int Zahl) {
+	if (Zahl > 0)
+		do
+		{
+			cout << Zahl << endl;
+			--Zahl;
+		} while (Zahl > 0);
+	else
+		return;
+};
+
+int main() {
+	cout << "Hallo!\n";
+
+
+	cout << "Geben Sie eine Zahl zwischen 1 und 99 ein:\n";
+	cin >> Zahl;
+
+	if (Zahl < 0 | Zahl > 100)
+	throw out_of_range ("Die Zahl liegt nicht zwischen 1 und 99");
+
+
+	thread t1(task_1, Zahl);
+	thread t2(task_2, Zahl);
+
+	t1.join();
+	t2.join();
+
+	system("pause");
+	return 0;
+}
