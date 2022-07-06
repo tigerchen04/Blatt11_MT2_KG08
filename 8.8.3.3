@@ -1,0 +1,47 @@
+//Der Computer 4 physische Prozessorkerne besitzt.
+
+#include <iostream>
+#include <thread>
+#include <chrono>
+#include <mutex>
+
+using namespace std;
+using namespace chrono;
+
+mutex m;
+
+//int lokale_Zählvariable = 0;
+
+void task(int lokale_Zählvariable) {
+	m.lock();
+	do
+	{
+		cout << lokale_Zählvariable << endl;
+		++lokale_Zählvariable;
+		this_thread::sleep_for(100ms);
+		m.unlock();
+	} while (lokale_Zählvariable >= 0);
+	m.unlock();
+};
+int main() {
+	thread t1(task, m);
+	cout << "Ich bin Thread 1.\n";
+	thread t2(task, m);
+	cout << "Ich bin Thread 2.\n";
+	thread t3(task, m);
+	cout << "Ich bin Thread 3.\n";
+	thread t4(task, m);
+	cout << "Ich bin Thread 4.\n";
+	thread t5(task, m);
+	cout << "Ich bin Thread 5.\n";
+	thread t6(task, m);
+	cout << "Ich bin Thread 6.\n";
+
+	t1.join();
+	t2.join();
+	t3.join();
+	t4.join();
+	t5.join();
+	t6.join();
+
+}
