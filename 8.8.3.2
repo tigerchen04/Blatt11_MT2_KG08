@@ -1,0 +1,50 @@
+//Im vorherigen Praktikum wurde ermittelt, dass der Computer 12 Prozesorkerne besitzt.
+
+#include <iostream>
+#include <thread>
+#include <chrono>
+
+using namespace std;
+using namespace chrono;
+
+int lokale_Zählvariable = 0;
+
+void task() {
+	do
+	{
+		cout << lokale_Zählvariable << endl;
+			++lokale_Zählvariable;
+	} while (lokale_Zählvariable >= 0);
+	this_thread::sleep_for(100ms);
+};
+int main() {
+	thread t1(task, "Ich bin Thread 1\n");
+	thread t2(task, "Ich bin Thread 2\n");
+	thread t3(task, "Ich bin Thread 3\n");
+	thread t4(task, "Ich bin Thread 4\n");
+	thread t5(task, "Ich bin Thread 5\n");
+	thread t6(task, "Ich bin Thread 6\n");
+	thread t7(task, "Ich bin Thread 7\n");
+	thread t8(task, "Ich bin Thread 8\n");
+	thread t9(task, "Ich bin Thread 9\n");
+	thread t10(task, "Ich bin Thread 10\n");
+	thread t11(task, "Ich bin Thread 11\n");
+	thread t12(task, "Ich bin Thread 12\n");
+	thread t13(task, "Ich bin Thread 13\n");
+	thread t14(task, "Ich bin Thread 14\n");
+
+	t1.join();
+	t2.join();
+	t3.join();
+	t4.join();
+	t5.join();
+	t6.join();
+	t7.join();
+	t8.join();
+	t9.join();
+	t10.join();
+	t11.join();
+	t12.join();
+	t13.join();
+	t13.join();
+}
