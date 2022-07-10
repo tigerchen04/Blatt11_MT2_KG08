@@ -5,138 +5,30 @@
 using namespace std;
 using namespace chrono;
 
-void task1() {
+void task() {
 	int lokale_Zählvariable = 0;
 	do
 	{
-		cout << "Ich bin Thread 1 und mein Zählstand ist " << lokale_Zählvariable << "." << endl;
+		cout << "Ich bin Thread " << this_thread::get_id() << " und mein Zählstand ist " << lokale_Zählvariable << "." << endl;
 		++lokale_Zählvariable;
-		this_thread::sleep_for(100ms);
+		this_thread::sleep_for(milliseconds(100));
 	} while (lokale_Zählvariable >= 0);
 };
 
-void task2() {
-	int lokale_Zählvariable = 0;
-	do
-	{
-		cout << "Ich bin Thread 2 und mein Zählstand ist " << lokale_Zählvariable << "." << endl;		
-		++lokale_Zählvariable;
-		this_thread::sleep_for(100ms);
-	} while (lokale_Zählvariable >= 0);
-};
 
-void task3() {
-	int lokale_Zählvariable = 0;
-	do
-	{
-		cout << "Ich bin Thread 3 und mein Zählstand ist " << lokale_Zählvariable << "." << endl;
-		++lokale_Zählvariable;
-		this_thread::sleep_for(100ms);
-	} while (lokale_Zählvariable >= 0);
-};
-
-void task4() {
-	int lokale_Zählvariable = 0;
-	do
-	{
-		cout << "Ich bin Thread 4 und mein Zählstand ist " << lokale_Zählvariable << "." << endl;		
-		++lokale_Zählvariable;
-		this_thread::sleep_for(100ms);
-	} while (lokale_Zählvariable >= 0);
-};
-
-void task5() {
-	int lokale_Zählvariable = 0;
-	do
-	{
-		cout << "Ich bin Thread 5 und mein Zählstand ist " << lokale_Zählvariable << "." << endl;
-		++lokale_Zählvariable;
-		this_thread::sleep_for(100ms);
-	} while (lokale_Zählvariable >= 0);
-};
-
-void task6() {
-	int lokale_Zählvariable = 0;
-	do
-	{
-		cout << "Ich bin Thread 6 und mein Zählstand ist " << lokale_Zählvariable << "." << endl;
-		++lokale_Zählvariable;
-		this_thread::sleep_for(100ms);
-	} while (lokale_Zählvariable >= 0);
-};
-
-void task7() {
-	int lokale_Zählvariable = 0;
-	do
-	{
-		cout << "Ich bin Thread 7 und mein Zählstand ist " << lokale_Zählvariable << "." << endl;
-		++lokale_Zählvariable;
-		this_thread::sleep_for(100ms);
-	} while (lokale_Zählvariable >= 0);
-};
-
-void task8() {
-	int lokale_Zählvariable = 0;
-	do
-	{
-		cout << "Ich bin Thread 8 und mein Zählstand ist " << lokale_Zählvariable << "." << endl;
-		++lokale_Zählvariable;
-		this_thread::sleep_for(100ms);
-	} while (lokale_Zählvariable >= 0);
-};
-
-void task9() {
-	int lokale_Zählvariable = 0;
-	do
-	{
-		cout << "Ich bin Thread 6 und mein Zählstand ist " << lokale_Zählvariable << "." << endl;
-		++lokale_Zählvariable;
-		this_thread::sleep_for(100ms);
-	} while (lokale_Zählvariable >= 0);
-};
-
-void task10() {
-	int lokale_Zählvariable = 0;
-	do
-	{
-		cout << "Ich bin Thread 6 und mein Zählstand ist " << lokale_Zählvariable << "." << endl;
-		++lokale_Zählvariable;
-		this_thread::sleep_for(100ms);
-	} while (lokale_Zählvariable >= 0);
-};
-
-void task11() {
-	int lokale_Zählvariable = 0;
-	do
-	{
-		cout << "Ich bin Thread 6 und mein Zählstand ist " << lokale_Zählvariable << "." << endl;
-		++lokale_Zählvariable;
-		this_thread::sleep_for(100ms);
-	} while (lokale_Zählvariable >= 0);
-};
-
-void task12() {
-	int lokale_Zählvariable = 0;
-	do
-	{
-		cout << "Ich bin Thread 6 und mein Zählstand ist " << lokale_Zählvariable << "." << endl;
-		++lokale_Zählvariable;
-		this_thread::sleep_for(100ms);
-	} while (lokale_Zählvariable >= 0);
-};
 int main() {
-	thread t1(task1);
-	thread t2(task2);
-	thread t3(task3);
-	thread t4(task4);
-	thread t5(task5);
-	thread t6(task6);
-	thread t7(task7);
-	thread t8(task8);
-	thread t9(task9);
-	thread t10(task10);
-	thread t11(task11);
-	thread t12(task12);
+	thread t1(task);
+	thread t2(task);
+	thread t3(task);
+	thread t4(task);
+	thread t5(task);
+	thread t6(task);
+	thread t7(task);
+	thread t8(task);
+	thread t9(task);
+	thread t10(task);
+	thread t11(task);
+	thread t12(task);
 
 	t1.join();
 	t2.join();
